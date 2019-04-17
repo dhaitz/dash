@@ -1,11 +1,7 @@
 FROM python:3.6
 
-COPY requirements.txt /
-RUN pip install -r /requirements.txt
+COPY requirements.txt app.py ./
+RUN pip install -r requirements.txt
 
-RUN mkdir /myworkdir
-WORKDIR /myworkdir
-COPY ./ ./
-
+CMD ["python", "./app.py"]
 EXPOSE 8050
-CMD ["python", "./app-simple.py"]
